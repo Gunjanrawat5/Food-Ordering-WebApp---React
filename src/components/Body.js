@@ -40,18 +40,19 @@ const Body = () => {
 
     return(
         <div className="body">
-            <div className="filter">
-                <div className="search">
+            <div className="filter flex">
+                <div className="search m-4 p-4">
                     <input
                      type="text"
-                      className="search-box"
+                      className="border border-solid border-black "
                        value={searchText}
                        onChange={(e)=>{
                         setSearchText(e.target.value)
                        }}
                        >
                        </input>
-                    <button onClick={()=>{
+                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+                     onClick={()=>{
                         //Filter the res cards and update the UI
                         //seearchText
                         const filteredRestaurant = listOfRestaurants.filter((res)=>
@@ -61,19 +62,22 @@ const Body = () => {
                     }}
                     >Search</button>
                 </div>
-                <button
-                 className="filter-btn"
-                  onClick={()=>{
-                    const filteredList = listOfRestaurants.filter(
-                        (res)=>res.info.avgRating>4.3
-                        )
-                        setListOfRestaurant(filteredList);
-                    }}
-                    >
-                    Top Rated Restaurants
+                <div className="search m-1 p-4 flex items-center">
+                    <button
+                    className="px-4 py-2 bg-gray-100 rounded-lg"
+                    onClick={()=>{
+                        const filteredList = listOfRestaurants.filter(
+                            (res)=>res.info.avgRating>4.3
+                            )
+                            setListOfRestaurant(filteredList);
+                        }}
+                        >
+                        Top Rated Restaurants
                     </button>
+                </div>
+               
             </div>
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
                {/* <RestaurantCard resData={resList[8]}/> */}
                {
                 filteredRestaurant.map((restaurant) => (
