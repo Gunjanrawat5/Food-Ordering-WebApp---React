@@ -7,9 +7,9 @@ const ItemList = ({items}) => {
 
     const dispatch = useDispatch();
 
-    const handleAddItem = () => {
+    const handleAddItem = (item) => {
       //dispatch an action
-      dispatch(addItem("pizza"))
+      dispatch(addItem(item))
     }
 
     return (
@@ -29,7 +29,8 @@ const ItemList = ({items}) => {
                     <div className="absolute">
                     <button 
                     className="p-2 rounded-lg bg-white shadow-lg "
-                    onClick={handleAddItem}
+
+                    onClick={() => handleAddItem(item)}
                     >Add +</button>
                     </div>
                     <img src={CDN_URL + item.card.info.imageId}></img>

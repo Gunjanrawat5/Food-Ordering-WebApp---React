@@ -14,6 +14,7 @@ const Header = () => {
     const {loggedInUser} = useContext(UserContext);
 
     const cartItems = useSelector((store) => store.cart.items)
+    console.log(cartItems)
     
     return(
         <div className="flex justify-between shadow-lg">
@@ -39,7 +40,7 @@ const Header = () => {
                        <Link to="/contact">Contact Us</Link> 
                     </li>
                     <li className="px-4 font-bold text-xl">
-                       Cart ({cartItems.length} items)
+                      <Link to="/cart"> Cart ({cartItems.length} items) </Link>
                     </li>
                     <li className="px-4">{loggedInUser}</li>
                     <button
